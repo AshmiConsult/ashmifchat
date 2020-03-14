@@ -26,8 +26,10 @@ add('writable_dirs', []);
 host('ashmifconsult.com')
     ->user('deployer')
     ->identityFile('~/.ssh/deployerkey')
-    ->set('deploy_path', '/var/www/html/ashmifchat');
+    ->set('deploy_path', '/var/www/ashmifchat');
 
+
+set('composer_options', 'install --verbose --prefer-dist --no-progress --no-interaction --optimize-autoloader');
 // Tasks
 
 task('build', function () {
