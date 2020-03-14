@@ -13,6 +13,10 @@ set('repository', 'git@github.com:AshmiConsult/ashmifchat.git');
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
 
+// set composer setting for deploy:vendors task
+env('composer_options', 'install --no-dev --verbose --prefer-dist --optimize-autoloader --no-progress --no-interaction --no-scripts');
+
+
 // Shared files/dirs between deploys 
 add('shared_files', []);
 add('shared_dirs', []);
@@ -22,14 +26,11 @@ add('writable_dirs', []);
 
 
 // Hosts
-
 host('ashmifconsult.com')
-    ->user('deployer')
-    ->identityFile('~/.ssh/deployerkey')
+    ->user('root')
+    // ->identityFile('~/.ssh/deployerkey')
     ->set('deploy_path', '/var/www/ashmifchat');
 
-
-set('composer_options', 'install --verbose --prefer-dist --no-progress --no-interaction --optimize-autoloader');
 // Tasks
 
 task('build', function () {
@@ -41,4 +42,4 @@ after('deploy:failed', 'deploy:unlock');
 
 // Migrate database before symlink new release.
 
-before('deploy:symlink', 'artisan:migrate');
+// before('deploy:symlink', 'artisan:migrate');

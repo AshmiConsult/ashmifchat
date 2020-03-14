@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::mixin(new \Laravel\Ui\AuthRouteMethods());
+Route::auth(['verify' => true]);
+
 
 // Route::get('/', function () {
 //     return view('welcome');
