@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Ui\AuthRouteMethods;
 
 Route::mixin(new \Laravel\Ui\AuthRouteMethods());
 Route::auth(['verify' => true]);
