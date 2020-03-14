@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::livewire('/new-post', 'new-post');
-Route::livewire('/edit-post', 'edit-post');
+// Route::livewire('/new-post', 'new-post');
+// Route::livewire('/edit-post', 'edit-post');
 
 
 Auth::routes();
